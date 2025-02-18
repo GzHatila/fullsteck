@@ -1,0 +1,27 @@
+#p1{
+    color:rgba(255, 255, 255, 0.897);
+        font-size: 18pt;
+}
+
+body{
+    background-color: black;
+
+}
+
+div{
+    background-color: bisque;
+        height: 400px;
+        width: 600px;
+}
+
+iframe {
+        height: 300px;
+        width: 590px;
+
+
+}
+
+a:hover{
+        color:rgb(226, 43, 43);
+
+}
