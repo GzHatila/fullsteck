@@ -1,0 +1,24 @@
+
+body{
+    background-color:rgb(39, 156, 177);
+
+}
+
+img{
+    height: 300px;
+    width: 400px;
+
+}
+
+a:hover{
+    color:rgb(236, 18, 18)
+}
+
+a{
+    color:white
+}
+
+table{
+    border:5px solid black;
+    
+}
