@@ -1,0 +1,36 @@
+.dotted{border-style: dotted; }
+.deshed{border-style: dashed;}
+.solid{border-style: solid}
+.radius{border-radius: 50px;}
+.padding{padding: 20px;}
+.display{display:inline;}
+
+div{
+    color: rgb(0, 0, 0);
+    margin: 30px;
+    border:5px blue;
+}
+
+#div_1{
+    display: inline;
+    border: 2px solid black;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    
+}
+
+#contato{
+    background-color: green;
+    position: fixed;
+    bottom: 0px;
+    right: 0px
+}
+
+#elemento1{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 2;
+}

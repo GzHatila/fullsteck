@@ -7,6 +7,7 @@ body{
 img{
     height: 300px;
     width: 400px;
+    
 
 }
 
@@ -18,7 +19,21 @@ a{
     color:white
 }
 
-table{
-    border:5px solid black;
-    
+.links{border-style: solid;
+    margin: 10px;
+    background-color: rgb(49, 189, 49);
+    height: 70px;
+    width: 400px;
+}
+
+.div01{
+        background-color: green;
+        position: fixed;
+        bottom: 0px;
+        right: 0px
+}
+
+.solid{border-style: solid;
+    background-color: azure;
+   
 }
