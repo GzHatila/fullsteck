@@ -25,9 +25,9 @@
     
 }
 
-#d2{
-    background-color: lightskyblue;
-    
+#D2{
+    background-color: hsl(203, 92%, 75%);
+    position: relative;
 }
 
 h1{
@@ -90,19 +90,36 @@ p{
         height: 200px;
         width: 200px ;
         position: absolute;
-        bottom: -1040px;
-        right: 0px;
+        width: 1000;
+        left: 1680px;   
     }
 
 .meio {
     text-align: center;
     color:darkgreen;
     position: absolute;
-    bottom: -1000px;
-    right: 40%;
+    width: 1900px;
+    left: 60px;
 }
 .site{
     background-color: yellow;
     padding: 10px;
-    
+    width: 700px;
+    left: 600px;
+    position: relative;
+  }
+  .tabela{
+    border: dashed red 4px;
+    width: 700px;
+    left: 600px;
+    position: relative;
+  }
+  table{
+    border: solid red 3px;
+    width: 700px;
+    left: 0px;
+    position: relative;
+  }
+  #p1{
+    font-size: 14px;
   }
