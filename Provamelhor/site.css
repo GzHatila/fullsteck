@@ -80,6 +80,77 @@ body{
     width: 400px;
 }
 
-d7{
-    
+#d8{
+    display: flex;
+    border-style: dotted;
+    border-color: red;
+    height: 145px;
+    width: 300px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    display: inline;
+  }
+  
+  th, td {
+    border: 1px solid red; 
+    padding: 8px; 
+    text-align: left; 
+  }
+  
+  th {
+    background-color: lightgray; 
+    font-weight: bold; 
+    color: red; 
+  }
+  
+  tr:nth-child(even) {
+    background-color:lightgray; 
+  }
+
+  #d9{
+    display: flex;
+    justify-content: center;
+
+  }
+
+  #d10{
+    display: flex;
+    justify-content: center;
+
+  }
+
+  #y{
+    background-color: yellow;
+    width: 500px;
+    height: 110px;
+    margin: 20px;
+  }
+
+  ol{
+    display: flex;
+    flex-direction: column;
+  }
+
+  a{
+    text-align: center;
+  }
+
+#d11{
+    background-color: bisque;
+        padding: 50px;
+        height: 100px;
+        width: 95%;
+        margin: 1px;
+        display: flex;
+        justify-content:space-between;
+}
+
+#p5{
+    display: flex;
+    justify-content: center;
+    font-family: Comic Sans MS ;
+    font-size: 15pt;
 }
