@@ -39,3 +39,8 @@ h1{
 input{
     text-align: center;
 }
+
+#d4{
+    display: flex;
+    background-color: antiquewhite;
+}

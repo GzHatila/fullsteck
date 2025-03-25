@@ -4,14 +4,13 @@ console.log(p1);
 document.getElementById('p1').innerHTML = "Olá Mundo!"
 
 //exemplo 1 
-let nome = prompt("Qual o seu Nome?");
-let idade = prompt("Qual a sua idade?");
+function idade(){
 let ano_atual = 2025;
-let ano_nascimento = ano_atual - idade;
+let ano_nascimento = ano_atual - parseInt(document.getElementById('n2').value);
 
-let resposta = "olá " + nome + ", seu ano de nascimento é " + ano_nascimento + "!";
+let resposta = "olá " + document.getElementById('nome').value + ", seu ano de nascimento é " + ano_nascimento + "!";
 document.getElementById('exc1').innerHTML = resposta
-
+}
 //exemplo de funcão
 
 function imprimeMensagem(msg){
@@ -44,8 +43,8 @@ function ex2(){
 //exeplo 3
 
 function ex3(){
-    let num1 = document.getElementById('exc3_1').value;
-    let num2 = document.getElementById('exc3_2').value;
+    let num1 = parseInt(document.getElementById('exc3_1').value);
+    let num2 = parseInt(document.getElementById('exc3_2').value);
     let num3 = soma(num1,num2);
     console.log(num3);
     document.getElementById('exc3_resp').innerHTML = "A soma de " + num1 + " e " + num2 + " é " + num3;
@@ -54,12 +53,14 @@ function ex3(){
 //exemplo 4
 
 function ex4(){
-    let nume1 = document.getElementById('exc4_1').value;
-    let nume2 = document.getElementById('exc4_2').value;
+    let nume1 = parseInt(document.getElementById('exc4_1').value);
+    let nume2 = parseInt(document.getElementById('exc4_2').value);
 
     let result = 0;
     if(num1 < 0 || num2 < 0){
-        result = soma(nume1,nume2)
-
+        result = soma(nume1,nume2);
+    }else{
+        result = mult(nume1,nume2);
     }
+    document.getElementById('exc4_resp').innerHTML="O resultado é" + result;
 }
