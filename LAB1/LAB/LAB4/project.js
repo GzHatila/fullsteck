@@ -19,6 +19,6 @@ else if(n1 > aleatorio){
     else {
         result=n1
          document.getElementById('ID_DO_ELEMENTO').innerHTML="Numero Coreto!!"
-
+         document.getElementById('ID_DO_ELEMENTO').style.setProperty("background-color", "green");
     }
 }
