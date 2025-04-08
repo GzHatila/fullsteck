@@ -83,6 +83,9 @@ desenhar_quadrado('aqua','',0,150,30,30)
 desenhar_quadrado('aqua','',0,120,30,30)
 desenhar_quadrado('aqua','',270,145,30,30)
 desenhar_linha('green','green',0,150,300,150)
+desenhar_linha('blue','blue',0,0,150,150)
+desenhar_linha('red','red',0,0,150,150)
+
 
 
 const ex2=document.getElementById('ex2');
