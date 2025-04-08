@@ -83,3 +83,77 @@ desenhar_quadrado('aqua','',0,150,30,30)
 desenhar_quadrado('aqua','',0,120,30,30)
 desenhar_quadrado('aqua','',270,145,30,30)
 desenhar_linha('green','green',0,150,300,150)
+
+
+const ex2=document.getElementById('ex2');
+
+if (ex1.getContext){
+    const etx=ex2.getContext('2d')
+
+
+function desenhar_quadrado2(cor,cor2,x,y,width,height,a,b,w,h){
+    etx.beginPath();
+    etx.lineWidth = 2;
+    etx.fillStyle = cor;
+    etx.strokeStyle = cor2;
+    etx.fillRect(x,y,width,height);
+    etx.strokeRect(a,b,w,h);
+    etx.closePath()
+    }
+
+}
+if (ex1.getContext){
+    const etx=ex2.getContext('2d')
+
+
+
+function desenhar_linha2(cor,cor2,x,y,a,b){
+    etx.beginPath();
+    etx.lineWidth = 2;
+    etx.fillStyle = cor;
+    etx.strokeStyle = cor2;
+    etx.moveTo(x,y);
+    etx.lineTo(a,b);
+    etx.fill();
+    etx.stroke();
+    etx.closePath();
+
+    }
+}
+
+if (ex1.getContext){
+    const etx=ex2.getContext('2d')
+
+
+
+function desenhar_arco2(cor,cor2,x,y,t,pi1,pi2){
+    etx.beginPath();
+    etx.lineWidth = 2;
+    etx.fillStyle = cor;
+    etx.strokeStyle = cor2;
+    etx.arc(x,y,t,pi1*Math.PI,pi2*Math.PI);
+    etx.fill();
+    etx.stroke();
+    etx.closePath();
+
+    }
+}
+
+if (ex1.getContext){
+    const etx=ex2.getContext('2d')
+
+
+
+function escrever2(cor,cor2,e,x,y){
+    etx.beginPath();
+    etx.lineWidth = 2;
+    etx.fillStyle = cor;
+    etx.strokeStyle = cor2;
+    etx.font = "90tpx Arial"
+    etx.textAlign = "center";
+    etx.fillText(e,x,y);
+    etx.strokeText(e,x,y)
+    etx.closePath();
+
+    }
+}
