@@ -1,0 +1,9 @@
+.flex-conteiner{
+    display: flex;
+    flex-direction: column;
+    background-color:azure;
+    text-align: center;
+}
+body{
+    background-color: cornsilk;
+}
