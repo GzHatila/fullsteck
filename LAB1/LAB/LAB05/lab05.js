@@ -92,7 +92,6 @@ desenhar_quadrado('yellow','',30,270,30,30)
 desenhar_quadrado('aqua','',0,150,30,30)
 desenhar_quadrado('aqua','',0,120,30,30)
 desenhar_quadrado('aqua','',270,145,30,30)
-<<<<<<< HEAD
 desenhar_quadrado('red','',100,150,50,50)
 
 
@@ -100,21 +99,11 @@ desenhar_linha('green','green',0,150,300,150)
 escrever('','black','canvas',150,70)
 desenhar_linha('blue','blue',0,0,150,150)
 desenhar_linha('red','red',300,0,150,150)
-=======
-desenhar_linha('green','green',0,150,300,150)
-desenhar_linha('blue','blue',0,0,150,150)
-desenhar_linha('red','red',0,0,150,150)
-
->>>>>>> ccdaa3c7f2eccfd6972a0e7ef24b4ffd6f3ef295
 
 
 const ex2=document.getElementById('ex2');
 
-<<<<<<< HEAD
 if (ex2.getContext){
-=======
-if (ex1.getContext){
->>>>>>> ccdaa3c7f2eccfd6972a0e7ef24b4ffd6f3ef295
     const etx=ex2.getContext('2d')
 
 
@@ -129,27 +118,17 @@ function desenhar_quadrado2(cor,cor2,x,y,width,height,a,b,w,h){
     }
 
 }
-<<<<<<< HEAD
 
 if (ex2.getContext){
     const etx=ex2.getContext('2d')
 
 function desenhar_linha2(cor,cor2,x,y,a,b,c,d,f,g){
-=======
-if (ex1.getContext){
-    const etx=ex2.getContext('2d')
-
-
-
-function desenhar_linha2(cor,cor2,x,y,a,b){
->>>>>>> ccdaa3c7f2eccfd6972a0e7ef24b4ffd6f3ef295
     etx.beginPath();
     etx.lineWidth = 2;
     etx.fillStyle = cor;
     etx.strokeStyle = cor2;
     etx.moveTo(x,y);
     etx.lineTo(a,b);
-<<<<<<< HEAD
     etx.lineTo(c,d);
     etx.lineTo(f,g);
     etx.fill();
@@ -171,34 +150,10 @@ etx.arc(x,y,t,pi1*Math.PI,pi2*Math.PI);
 etx.fill();
 etx.stroke();
 etx.closePath();
-=======
-    etx.fill();
-    etx.stroke();
-    etx.closePath();
 
     }
 }
 
-if (ex1.getContext){
-    const etx=ex2.getContext('2d')
-
-
-
-function desenhar_arco2(cor,cor2,x,y,t,pi1,pi2){
-    etx.beginPath();
-    etx.lineWidth = 2;
-    etx.fillStyle = cor;
-    etx.strokeStyle = cor2;
-    etx.arc(x,y,t,pi1*Math.PI,pi2*Math.PI);
-    etx.fill();
-    etx.stroke();
-    etx.closePath();
->>>>>>> ccdaa3c7f2eccfd6972a0e7ef24b4ffd6f3ef295
-
-    }
-}
-
-<<<<<<< HEAD
 if (ex2.getContext){
     const etx=ex2.getContext('2d')
 
@@ -246,23 +201,3 @@ desenhar_linha2('orange','orange',150,70,110,130,190,130,190,130)
 desenhar_quadrado2('aqua','aqua',160,150,15,15)
 desenhar_quadrado2('aqua','aqua',125,150,15,15)
 desenhar_quadrado2('brown','brown',142,180,15,30)
-=======
-if (ex1.getContext){
-    const etx=ex2.getContext('2d')
-
-
-
-function escrever2(cor,cor2,e,x,y){
-    etx.beginPath();
-    etx.lineWidth = 2;
-    etx.fillStyle = cor;
-    etx.strokeStyle = cor2;
-    etx.font = "90tpx Arial"
-    etx.textAlign = "center";
-    etx.fillText(e,x,y);
-    etx.strokeText(e,x,y)
-    etx.closePath();
-
-    }
-}
->>>>>>> ccdaa3c7f2eccfd6972a0e7ef24b4ffd6f3ef295
