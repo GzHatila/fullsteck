@@ -1,0 +1,24 @@
+.flex-conteiner{
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    text-align: center;
+}
+body{
+    background-color: rgb(202, 196, 189);
+}
+
+#d1{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    text-align: center;
+}
+
+#d2{
+    display: flex;
+    justify-content: center;
+    
+}

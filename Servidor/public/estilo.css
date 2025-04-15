@@ -1,0 +1,18 @@
+.flex-conteiner{
+    display: flex;
+    flex-direction: column;
+    background-color:azure;
+    text-align: center;
+}
+
+#d1{
+    flex-direction: row;
+    background-color: rgb(131, 185, 233);
+    font-size: 30px;
+}
+
+d2{
+    flex-direction: row;
+    background-color: darkgrey;
+    font-size: 15px;
+}

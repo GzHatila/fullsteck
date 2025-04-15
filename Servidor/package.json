@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^5.1.0"
+  },
+  "name": "servidor",
+  "version": "1.0.0",
+  "description": "meu primeiro servidor",
+  "main": "aula01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GzHatila/fullsteck"
+  },
+  "author": "Hatila",
+  "license": "ISC"
+}
