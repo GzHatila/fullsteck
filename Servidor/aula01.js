@@ -10,3 +10,9 @@ server.listen(80);
 
 
 console.log("Servidor Rodando".rainbow);    
+
+// Metodos e actions
+
+app.get("/inicio", function(requisicao, resposta){
+    resposta.redirect("LAB/index.html");
+})
