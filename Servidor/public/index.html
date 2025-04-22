@@ -14,7 +14,26 @@
         <div>
             <form method="get" action="/inicio">
                 <input type="text" name="Nome">
-                <input type="submit" value="Clique aqui">
+                <input type="submit" value="Exemplo get">
+            </form>
+
+            <form method="post" action="/inicio">
+                <input type="submit" value="Exemplo post">
+            </form>
+
+            <h2>Exemplo de metodos e acoes em um unico fomulario</h2>
+            <form>
+                <input type="submit" value="GET /inicio" formmethod="get" formaction="/inicio">
+                <input type="submit" value="POST /inicio" formmethod="post" formaction="/inicio">
+            </form>
+
+            <h2>Cadrastro de Usuario</h2>
+            <form method="post" action="/cadastrar">
+                <p>Nome: <input type="text" name="Nome"></p>
+                <p>Login: <input type="text" name="Login"></p>
+                <p>Senha: <input type="password" name="Senha"></p>
+                <p>Nascimento: <input type="date" name="nascimento"></p>
+                <input type="submit" value="cadastrar">
             </form>
         </div>
     </body>
