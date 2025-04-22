@@ -46,3 +46,8 @@ app.post("/cadastrar", function(requisicao,resposta){
 
     resposta.render("resposta",{Nome,Login,Senha,Nasc});
 })
+
+app.get("/for_ejs", function(requisicao, resposta){
+    let valor = requisicao.query.valor;
+    resposta.render("for",{valor});
+})
