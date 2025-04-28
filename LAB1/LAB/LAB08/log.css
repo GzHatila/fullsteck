@@ -1,0 +1,23 @@
+.flex-conteiner{
+    display: flex;
+    flex-direction: column;
+    background-color:azure;
+    text-align: center;
+    align-items: center;
+}
+
+#d1{
+        flex-direction: row;
+        justify-content: center;
+        background-color: rgb(131, 185, 233);
+        font-size: 30px;
+        border: 2px, solid , black;
+        width: 400px;
+           
+    }
+
+#d2{
+    flex-direction: row;
+    background-color: darkgrey;
+    font-size: 15px;
+}

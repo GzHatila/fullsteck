@@ -51,3 +51,26 @@ app.get("/for_ejs", function(requisicao, resposta){
     let valor = requisicao.query.valor;
     resposta.render("for",{valor});
 })
+
+
+//------------ LAB08 -------------
+
+
+app.get("/cadastro", function(requisicao, resposta){
+    let Nome = requisicao.query.Nome;
+    let Senha = requisicao.query.Senha;
+
+    console.log(Nome,Senha)
+    resposta.render("Resp0sta",{Nome,Senha});
+})
+
+app.post("/login", function(requisicao,resposta){
+    let Nome = requisicao.body.Nome;
+    let Senha = requisicao.body.Senha;
+
+    console.log(Nome,Senha);
+
+    resposta.render("Resp0sta",{Nome,Senha});
+})
+
+//--------------------------------
