@@ -28,7 +28,8 @@ app.use(bodyParser.json())
 app.set('view engine', 'ejs')
 app.set('views', './views');
 
-console.log("Servidor Rodando".rainbow);    
+console.log("Servidor Rodando".rainbow); 
+
 
 //------------ Aula10 -------------
 
@@ -105,20 +106,21 @@ app.post("/login", function(requisicao,resposta){
 // Aula11
 
 app.post('/logar', function(requisicao, resposta){
-    let login = requisicao.body.login
-    let Sehna = requisicao.body.Senha
-    console.log(login,Senha);
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+    console.log(login, senha);
 
-    var data = {db_login: login, db_senha: Senha}
+    var data = {db_login: login, db_senha: senha}
 
-    usuario.find(data).toArray(function(err,items){
+    usuario.find(data).toArray(function(err, items){
         console.log(items)
         if(items.length == 0){
-            resposta.render("resposta_login", {status: "usuario/senha não encontrado}"});
+            resposta.render("resposta_login",{status: "usuario/senha não encontrado"});
         }else if(err){
-            resposta.render("reposta_login",{status: "erro ao logar"});
+            resposta.render("resposta_login",{status: "erro ao logar"});
         }else{
-            resposta.render("reposta_login",{status: "usuario"+login+"logando com sucesso"});
+            resposta.render("resposta_login",{status: "usuario "+login+" logado"});
         }
     })
+
 })
