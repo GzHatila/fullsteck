@@ -17,6 +17,8 @@ app.set('views', './views');
 
 console.log("Servidor Rodando".rainbow);    
 
+//------------ Aula10 -------------
+
 // Metodos e actions
 
 app.get("/inicio", function(requisicao, resposta){
@@ -44,13 +46,28 @@ app.post("/cadastrar", function(requisicao,resposta){
 
     console.log(Nome,Login,Senha,Nasc);
 
+
+    //------------ Aula11 -------------
+
+    var data = {db_nome: Nome,db_login: Login,db_senha: Senha,db_nasc: Nasc}
+    usuario.insertOne(data,function(err){
+        console.log(err)
+      if (err) {
+        resposta.render("resposta",{status:"Erro" ,Nome,Login,Senha,Nasc});
+      }else {
+        resposta.render("resposta",{status:"Sucesso" ,Nome,Login,Senha,Nasc});        
+      };
+    });
+    
     resposta.render("resposta",{Nome,Login,Senha,Nasc});
+    
 })
 
 app.get("/for_ejs", function(requisicao, resposta){
     let valor = requisicao.query.valor;
     resposta.render("for",{valor});
 })
+//--------------------------------
 
 
 //------------ LAB08 -------------
@@ -74,3 +91,17 @@ app.post("/login", function(requisicao,resposta){
 })
 
 //--------------------------------
+
+//------------ Aula11 -------------
+
+var mongodb = require("mongodb");
+
+const MongoClient = mongodb.MongoClient;
+
+
+const uri = 'mongodb+srv://Hatila:8esmyAo4IK5oB1jS@cluster0.crpkhxc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+var dbo = client.db("exemplo_bd");
+var customers = dbo.createCollection("customers",);
