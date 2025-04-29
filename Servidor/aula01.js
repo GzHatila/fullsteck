@@ -7,6 +7,19 @@ app.use(express.static('./public'));
 
 var server = http.createServer(app);
 server.listen(80);
+//------------ Aula11 -------------
+
+var mongodb = require("mongodb");
+
+const MongoClient = mongodb.MongoClient;
+
+
+const uri = 'mongodb+srv://Hatila:8esmyAo4IK5oB1jS@cluster0.crpkhxc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+
+const client = new MongoClient(uri, { useNewUrlParser: true });
+
+var dbo = client.db("exemplo_bd");
+var usuario = dbo.collection("customers");
 
 let bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended: false }))
@@ -59,7 +72,6 @@ app.post("/cadastrar", function(requisicao,resposta){
       };
     });
     
-    resposta.render("resposta",{Nome,Login,Senha,Nasc});
     
 })
 
@@ -90,18 +102,23 @@ app.post("/login", function(requisicao,resposta){
     resposta.render("Resp0sta",{Nome,Senha});
 })
 
-//--------------------------------
+// Aula11
 
-//------------ Aula11 -------------
+app.post('/logar', function(requisicao, resposta){
+    let login = requisicao.body.login
+    let Sehna = requisicao.body.Senha
+    console.log(login,Senha);
 
-var mongodb = require("mongodb");
+    var data = {db_login: login, db_senha: Senha}
 
-const MongoClient = mongodb.MongoClient;
-
-
-const uri = 'mongodb+srv://Hatila:8esmyAo4IK5oB1jS@cluster0.crpkhxc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
-
-const client = new MongoClient(uri, { useNewUrlParser: true });
-
-var dbo = client.db("exemplo_bd");
-var customers = dbo.createCollection("customers",);
+    usuario.find(data).toArray(function(err,items){
+        console.log(items)
+        if(items.length == 0){
+            resposta.render("resposta_login", {status: "usuario/senha não encontrado}"});
+        }else if(err){
+            resposta.render("reposta_login",{status: "erro ao logar"});
+        }else{
+            resposta.render("reposta_login",{status: "usuario"+login+"logando com sucesso"});
+        }
+    })
+})
