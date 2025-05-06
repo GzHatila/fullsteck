@@ -1,0 +1,11 @@
+body{
+    background-color: gainsboro;
+}
+
+.flex-conteiner{
+    display: flex;
+    flex-direction: column;
+    background-color:azure;
+    text-align: center;
+    align-items: center;
+}
