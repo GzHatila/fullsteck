@@ -124,3 +124,27 @@ app.post('/logar', function(requisicao, resposta){
     })
 
 })
+
+// ---- LAB09 ----
+
+app.post('/post', function(requisicao, resposta){
+    let titulo = requisicao.body.titulo;
+    let resumo = requisicao.body.resumo;
+    let conteudo = requisicao.body.conteudo;
+
+    console.log(titulo,resumo,conteudo );
+
+    var data = {db_titulo: titulo, db_resumo: resumo,db_conteudo: conteudo}
+
+    blog.find(data).toArray(function(err, items){
+        console.log(items)
+        if(items.length == 0){
+            resposta.render("resposta_login",{status: "Post não encontrado"});
+        }else if(err){
+            resposta.render("resposta_login",{status: "erro ao encontrar o Post"});
+        }else{
+            resposta.render("resposta_login",{: "resumo "+login+" titulo"});
+        }
+    })
+
+})
