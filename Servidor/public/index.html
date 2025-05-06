@@ -46,6 +46,19 @@
             <p>Senha: <input type="password" name="senha"></p>
             <input type="submit" value="Logar!">
         </form>
+        <h2> alterar a senha </h2>
+        <form action="/atualizar_senha" method="post">
+            <p>login: <input type="text" name="login"></p>
+            <p>Senha: <input Type="password" name="senha"></p>
+            <p>Nova Senha: <input Type="password" name="novasenha"></p>
+            <input type="submit" value="Logar!">
+        </form>
+        <h2> Remover um usuario</h2>
+        <form action="/remover_usuario" method="post">
+            <p>login: <input type="text" name="login"></p>
+            <p>Senha: <input Type="password" name="senha"></p>
+            <input type="submit" value="Remover">
+        </form>
         </div>
     </body>
 </html>

@@ -20,6 +20,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 
 var dbo = client.db("exemplo_bd");
 var usuario = dbo.collection("customers");
+var blog = dbo.collection("Posts");
 
 let bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended: false }))
@@ -127,26 +128,68 @@ app.post('/logar', function(requisicao, resposta){
 
 // ---- LAB09 ----
 
-app.post('/post', function(requisicao, resposta){
+app.post("/post", function(requisicao, resposta){
     let titulo = requisicao.body.titulo;
     let resumo = requisicao.body.resumo;
     let conteudo = requisicao.body.conteudo;
 
-    console.log(titulo,resumo,conteudo );
+    let novoPost = {
+        db_Titulo: titulo,
+        db_Resumo: resumo,
+        db_Conteudo: conteudo
+    };
 
-    var data = {db_titulo: titulo, db_resumo: resumo,db_conteudo: conteudo}
-
-    blog.find(data).toArray(function(err, items){
-        console.log(items)
-        if(items.length == 0){
-            resposta.render("resposta_login",{status: "Post não encontrado"});
-        }else if(err){
-            resposta.render("resposta_login",{status: "erro ao encontrar o Post"});
-        }else{
-            resposta.render("resposta_login",{status: "resumo "+login+" titulo"});
+    blog.insertOne(novoPost, function(err, result){
+        if (err) {
+            resposta.render("blog", { status: "Erro ao inserir o Post" });
+        } else {
+            // Buscar o post recém-inserido (opcional)
+            blog.find({ db_Titulo: titulo }).toArray(function(err, items){
+                if (err) {
+                    resposta.render("blog", { status: "Erro ao encontrar o Post" });
+                } else if (items.length === 0) {
+                    resposta.render("blog", { status: "Post não encontrado" });
+                } else {
+                    resposta.render("blog", {
+                        status: "POST postado com sucesso",
+                        titulo: titulo,
+                        resumo: resumo,
+                        conteudo: conteudo
+                    });
+                }
+            });
         }
-    })
+    });
+});
+// ---- ---- ---
 
+// --- aula 12 ---
+
+app.post("/atualizar_senha", function(requisicao,resposta){
+    let login = requisicao.body.login;
+    let senha = requisicao.body.senha;
+    let novasenha = requisicao.body.novasenha;
+
+    let data = {db_login: login,db_senha: senha,db_novasenha: novasenha}
+    let new_data = {$set: {db_senha: novasenha}}
+
+    usuario.updateOne(data,new_data, function(err,result){
+        if (result.modifiedCount == 0){
+            resposta.render("resposta_login", {status: "usuario/senha não encontrado"})
+        }else if (err){
+            resposta.render("resposta_login",{status: "erro ao logar"});
+        }else {
+            resposta.render("resposta_login",{status: "usuario "+login+" logado"});
+        }
+    });
 })
 
-// ---- ---- ----
+app.get("/posts", function(req, res) {
+    blog.find({}).toArray(function(err, items) {
+        if (err) {
+            res.render("blog", { status: "Erro ao buscar posts", posts: [] });
+        } else {
+            res.render("blog", { status: "Lista de Posts", posts: items });
+        }
+    });
+});
