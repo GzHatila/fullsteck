@@ -143,8 +143,10 @@ app.post('/post', function(requisicao, resposta){
         }else if(err){
             resposta.render("resposta_login",{status: "erro ao encontrar o Post"});
         }else{
-            resposta.render("resposta_login",{: "resumo "+login+" titulo"});
+            resposta.render("resposta_login",{status: "resumo "+login+" titulo"});
         }
     })
 
 })
+
+// ---- ---- ----
