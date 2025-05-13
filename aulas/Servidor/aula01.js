@@ -220,9 +220,22 @@ app.post("/cad10", function(req, res){
                 Status: "Não foi Possivel Cadastrar"
             })
         } else{
-            res.rander(" Cad10",{
+            res.rander("cad10",{
+                Status: "Cadastro Realizado com Sucesso"
+            })
+        }
+    })
+
+    log.find({}).toArray((err, result)) => {
+        if (err){
+            res.render("cad10",{
+                Status: "Não foi Possivel Cadastrar"
+            })
+        } else{
+            res.rander("cad10",{
                 Status: "Cadastro Realizado com Sucesso"
             })
         }
     })
 })
+
