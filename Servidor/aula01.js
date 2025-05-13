@@ -198,3 +198,16 @@ app.get("/posts", function(req, res) {
         }
     });
 });
+
+
+// ---------------- LAB 10 ----------------
+
+app.post("/cad10", function(req, res){
+    let nome = req.body.Nome
+    let senha = req.body.Senha
+})
+
+app.post("/log10"), function(req, res){
+    let login = req.body.login
+    let senha = req.body.senha
+})
