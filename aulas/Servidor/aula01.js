@@ -206,12 +206,12 @@ app.get("/posts", function(req, res) {
 
 app.post("/cad10", function(req, res){
     var data = {
-        db_nome: req.bodynome,
-        db_login: req.bodylogin,
-        db_senha: req.bodysenha
+        db_nome: req.body.nome,
+        db_login: req.body.login,
+        db_senha: req.body.senha
     };
 
-        log.insertOne(data, function(err,result){
+        log.insertOne(data, function(err,){
             console.log(log)
             if (err){
                 res.render("cad10.ejs",{
@@ -225,6 +225,22 @@ app.post("/cad10", function(req, res){
         })
     })
 
-    app.post("/log10", function(req, result){
-        
-    })
+
+// ---------- logar --------------
+    app.post("/log10", function(req, resp){
+        let data = {
+            db_login: req.body.login,
+            db_senha: req.body.senha,
+
+        };
+
+        log.find(data).toArray(function(err, items) {
+            if (items.length == 0) {
+                resp.render('log10.ejs', {resposta: "Usuário/senha não encontrado!"})
+            } else if (err) {
+                resp.render('log10.ejs', {resposta: "Erro ao logar usuário!"})
+            }else {
+                resp.render('log10.ejs', {resposta: "Usuário logado com sucesso!"})        
+              };
+            });
+       })
