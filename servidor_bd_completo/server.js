@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const { render } = require('ejs');
 const MongoClient = require("mongodb").MongoClient;
 
-const uri = `mongodb+srv://professor:JUh95IMYZm7xWGPR@aulabd.cjihvk4.mongodb.net/?retryWrites=true&w=majority&appName=AulaBD`;
+const uri = 'mongodb+srv://Hatila:8esmyAo4IK5oB1jS@cluster0.crpkhxc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 const client = new MongoClient(uri, { useNewUrlParser: true });
 var dbo = client.db("bd_completo");
