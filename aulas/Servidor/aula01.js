@@ -21,6 +21,8 @@ const client = new MongoClient(uri, { useNewUrlParser: true });
 var dbo = client.db("exemplo_bd");
 var usuario = dbo.collection("customers");
 var blog = dbo.collection("Posts");
+var log = dbo.collection("logs");
+var carro = dbo.collection("carros")
 
 let bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended: false }))
@@ -203,11 +205,24 @@ app.get("/posts", function(req, res) {
 // ---------------- LAB 10 ----------------
 
 app.post("/cad10", function(req, res){
-    let nome = req.body.Nome
-    let senha = req.body.Senha
-})
+    let nome = req.body.nome;
+    let login = req.body.login;
+    let senha = req.body.senha;
 
-app.post("/log10"), function(req, res){
-    let login = req.body.login
-    let senha = req.body.senha
+    var data = {db_nome: nome, db_login: login, db_senha: senha};
+
+
+
+    log.insertOne(data, function(err,result){
+        console.log(log)
+        if (err){
+            res.render("cad10",{
+                Status: "Não foi Possivel Cadastrar"
+            })
+        } else{
+            res.rander(" Cad10",{
+                Status: "Cadastro Realizado com Sucesso"
+            })
+        }
+    })
 })
