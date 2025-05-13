@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Resposta Login</title>
-        <meta charset="utf-8">
-        <link href="estilo.css" rel="stylesheet">
-    </head>
-    <body>
+<head>
+    <title>Blog</title>
+    <meta charset="utf-8">
+    <link href="/styles/estilo.css" rel="stylesheet">
+</head>
+<body>
+    <% if (status) { %>
         <h1><%= status %></h1>
         <p><%= titulo %></p>
         <p><%= resumo %></p>
         <p><%= conteudo %></p>
-    </body>
+    <% } %>
+
+    <h1>Todos os Posts</h1>
+    <a href="/cadastrar_post.html"><button>Novo Post</button></a>
+    <% posts.forEach(post => { %>
+        <div class="post">
+            <h2><%= post.db_Titulo %></h2>
+            <p><%= post.db_Resumo %></p>
+            <article><%= post.db_Conteudo %></article>
+        </div>
+    <% }) %>
+</body>
 </html>

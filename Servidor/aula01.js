@@ -128,10 +128,10 @@ app.post('/logar', function(requisicao, resposta){
 
 // ---- LAB09 ----
 
-app.post("/post", function(requisicao, resposta){
-    let titulo = requisicao.body.titulo;
-    let resumo = requisicao.body.resumo;
-    let conteudo = requisicao.body.conteudo;
+app.post("/post", function(req, res) {
+    let titulo = req.body.titulo;
+    let resumo = req.body.resumo;
+    let conteudo = req.body.conteudo;
 
     let novoPost = {
         db_Titulo: titulo,
@@ -139,27 +139,32 @@ app.post("/post", function(requisicao, resposta){
         db_Conteudo: conteudo
     };
 
-    blog.insertOne(novoPost, function(err, result){
+    blog.insertOne(novoPost, function(err, result) {
         if (err) {
-            resposta.render("blog", { status: "Erro ao inserir o Post" });
+            res.render("postado", {
+                status: "Erro ao inserir o Post",
+                titulo: "",
+                resumo: "",
+                conteudo: ""
+            });
         } else {
-            // Buscar o post recém-inserido (opcional)
-            blog.find({ db_Titulo: titulo }).toArray(function(err, items){
-                if (err) {
-                    resposta.render("blog", { status: "Erro ao encontrar o Post" });
-                } else if (items.length === 0) {
-                    resposta.render("blog", { status: "Post não encontrado" });
-                } else {
-                    resposta.render("blog", {
-                        status: "POST postado com sucesso",
-                        titulo: titulo,
-                        resumo: resumo,
-                        conteudo: conteudo
-                    });
-                }
+            res.render("postado", {
+                status: "POST postado com sucesso",
+                titulo: titulo,
+                resumo: resumo,
+                conteudo: conteudo
             });
         }
     });
+});
+
+app.get('/blog', async (req, res) => {
+    try {
+        const posts = await blog.find().toArray();
+        res.render('blog', { posts, status: null, titulo: null, resumo: null, conteudo: null });
+    } catch (err) {
+        res.send('Erro ao buscar posts');
+    }
 });
 // ---- ---- ---
 
