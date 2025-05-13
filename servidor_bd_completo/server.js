@@ -31,7 +31,11 @@ app.get('/', (req, res) => {
 
 app.post("/cadastrar_usuario", function(req, resp) {
 
-    let data = { db_nome: req.body.nome, db_login: req.body.login, db_senha: req.body.senha };
+    let data = { 
+      db_nome: req.body.nome,
+      db_login: req.body.login,
+      db_senha: req.body.senha
+       };
 
     // salva dados no banco
     usuarios.insertOne(data, function (err) {

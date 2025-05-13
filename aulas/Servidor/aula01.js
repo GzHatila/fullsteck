@@ -205,30 +205,26 @@ app.get("/posts", function(req, res) {
 // ---------------- LAB 10 ----------------
 
 app.post("/cad10", function(req, res){
-    let nome = req.body.nome;
-    let login = req.body.login;
-    let senha = req.body.senha;
+    var data = {
+        db_nome: req.bodynome,
+        db_login: req.bodylogin,
+        db_senha: req.bodysenha
+    };
 
-    var data = {db_nome: nome, db_login: login, db_senha: senha};
-
-
-
-    log.insertOne(data, function(err,result){
-        console.log(log)
-        if (err){
-            res.render("cad10",{
-                Status: "Não foi Possivel Cadastrar"
-            })
-        } else{
-            res.rander("cad10",{
-                Status: "Cadastro Realizado com Sucesso",
-                nome: nome,
-                login: login,
-                senha: senha
-            })
-        }
+        log.insertOne(data, function(err,result){
+            console.log(log)
+            if (err){
+                res.render("cad10.ejs",{
+                    status: "Não foi Possivel Cadastrar"
+                })
+            } else{
+                res.render("cad10.ejs",{
+                    status: "Cadastro Realizado com Sucesso",
+                })
+            }
+        })
     })
 
-})
-
-app.post
+    app.post("/log10", function(req, result){
+        
+    })
