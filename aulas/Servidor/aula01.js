@@ -221,21 +221,14 @@ app.post("/cad10", function(req, res){
             })
         } else{
             res.rander("cad10",{
-                Status: "Cadastro Realizado com Sucesso"
+                Status: "Cadastro Realizado com Sucesso",
+                nome: nome,
+                login: login,
+                senha: senha
             })
         }
     })
 
-    log.find({}).toArray((err, result)) => {
-        if (err){
-            res.render("cad10",{
-                Status: "Não foi Possivel Cadastrar"
-            })
-        } else{
-            res.rander("cad10",{
-                Status: "Cadastro Realizado com Sucesso"
-            })
-        }
-    })
 })
 
+app.post
