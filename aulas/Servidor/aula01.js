@@ -244,3 +244,20 @@ app.post("/cad10", function(req, res){
               };
             });
        })
+
+// ---------- Listagem --------------
+//adiconar carro
+
+app.post("/adicionar", function(req, resp) {
+    let carro = {
+        db_carro: req.body.carro
+    };
+
+    log.insertOne(carro, function(err, items) {
+        if (err) {
+            resp.render('carro.ejs', {status: "Erro ao adicionar carro"});
+        } else {
+            resp.render('carro.ejs', {status: "Carro adicionado com sucesso!"});
+        }
+    });
+});
