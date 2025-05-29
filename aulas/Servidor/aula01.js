@@ -22,7 +22,7 @@ var dbo = client.db("exemplo_bd");
 var usuario = dbo.collection("customers");
 var blog = dbo.collection("Posts");
 var log = dbo.collection("logs");
-var carro = dbo.collection("carros")
+var carros = dbo.collection("carros")
 
 let bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended: false }))
@@ -253,11 +253,35 @@ app.post("/adicionar", function(req, resp) {
         db_carro: req.body.carro
     };
 
-    log.insertOne(carro, function(err, items) {
+    carros.insertOne(carro, function(err, items) {
         if (err) {
             resp.render('carro.ejs', {status: "Erro ao adicionar carro"});
         } else {
             resp.render('carro.ejs', {status: "Carro adicionado com sucesso!"});
         }
+    });
+});
+
+//deletar carro
+
+app.post("/deletar", function(req, resp){
+    let carro = {
+        db_carro: req.body.carro
+    }
+
+    carros.deleteOne(carro, function(err,items){
+
+        if (err){
+            resp.render('carro.ejs', {status: "Erro ao deletar carro"});
+        } else {
+            resp.render('carro.ejs', {status: "Carro deletado com sucesso!"});
+        }
+    });
+})
+
+//listagem 
+app.get('', function(req,resp){
+    carros.find().toArray(function(err, items){
+        resp.render("listagem_carros.html",{carro: items} )
     });
 });
