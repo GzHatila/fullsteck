@@ -250,7 +250,8 @@ app.post("/cad10", function(req, res){
 
 app.post("/adicionar", function(req, resp) {
     let carro = {
-        db_carro: req.body.carro
+        db_carro: req.body.carro,
+        db_marca: req.body.marca,
     };
 
     carros.insertOne(carro, function(err, items) {
@@ -304,4 +305,24 @@ app.post("/vender", function(req, resp){
 
 //atualizar carro 
 
-app.post("/atualizar")
+app.post("/atualizar", function(req,resp){
+    let data = {
+        db_carro: req.body.carro,
+        db_marca: req.body.marca,
+    };
+
+    let newdata = {
+        $set: {db_carro: req.body.carro, db_marca: req.body.marca}
+    }
+
+    carros(data, newData, function (err, result) {
+        if (result.modifiedCount == 0){
+            resp.render('carro.ejs', {status: "carro não encontrado"})
+        }else if (err){
+            resp.render('carro.ejs', {status: "erro ao atualizar carro"})
+        }else{
+            resp.render('carro.ejs', {status: "carro atualizado"})
+        }
+    })
+});
+
