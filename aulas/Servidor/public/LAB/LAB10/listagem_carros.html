@@ -16,6 +16,7 @@
              <a>Marca</a>
              <input type="text" name="marca">
                 <input type="submit" value="Enviar">
+            </form>
             <form method="post" action="/deletar">
                 <a>Deletar Carro</a>
                  <input type="text" name="carro" >
@@ -24,10 +25,10 @@
         </div>
         <div id="d4">
             <h1>Lista de Carros</h1>
+             <%for (var i = 0; i < carro.length; i++){%>
             <div id="d5">
-            <ul>
-            <li><%= JSON.stringify(carro) %></li>
-            </ul>
+                <p>Carro: <%= carro[i].db_carro %></p>
+                <p>Marca: <%= marca[i].db_marca %> </p>
             </div>
         </div>
     </body>
