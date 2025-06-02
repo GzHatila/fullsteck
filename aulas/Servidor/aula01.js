@@ -285,3 +285,23 @@ app.get('', function(req,resp){
         resp.render("listagem_carros.html",{carro: items} )
     });
 });
+
+//vender carro
+app.post("/vender", function(req, resp){
+    let carro = {
+        db_carro: req.body.carro
+    }
+
+    carros.deleteOne(carro, function(err,items){
+
+        if (err){
+            resp.render('carro.ejs', {status: "Erro ao vender carro carro"});
+        } else {
+            resp.render('carro.ejs', {status: "Carro vendido com sucesso!"});
+        }
+    });
+})
+
+//atualizar carro 
+
+app.post("/atualizar")
